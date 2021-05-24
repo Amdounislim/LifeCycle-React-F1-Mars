@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+// import Counter from "./Components/Counter";
+import Counter1 from "./Components/Counter1";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor(props) {
+    console.log("App.js Constructor");
+    super(props);
+    this.state = {
+      mount: true,
+      c:2
+    };
+  }
+
+  componentDidMount() {
+    console.log("App.js componentDidMount");
+  }
+  // switch = () => {
+  //   this.setState({
+  //     mount: !this.state.mount,
+  //   });
+  // };
+
+  render() {
+    console.log("App.js render");
+    return (
+      <div className="App">
+        <h1>React LifeCycle methods</h1>
+        {/* <button onClick={this.switch}>switch</button>
+        {this.state.mount ? <Counter /> : null} */}
+        {/* <Counter /> */}
+        <Counter1 c={this.state.c} />
+      </div>
+    );
+  }
 }
-
-export default App;
